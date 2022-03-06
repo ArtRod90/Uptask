@@ -48,7 +48,7 @@ class Email{
         $contenido = "<html>";
         $contenido .= "<p><b>" . $this->nombre . "</b> Has Creado tu cuenta en Uptask, porfavor confirmarla
        en el siguiente enlace</p>";
-       $contenido .= "<p>Preciona aqui: <a href = 'https://protected-bayou-02768.herokuapp.com/confirmar?token=" 
+       $contenido .= "<p>Preciona aqui: <a href = 'https://morning-tor-49638.herokuapp.com/confirmar?token=" 
       . $this->token ."'>Confirmar Cuenta</a></p>";
 
       }elseif ($tipo === "cambiar") {
@@ -56,7 +56,7 @@ class Email{
         $contenido = "<html>";
         $contenido .= "<p><b>" . $this->nombre . "</b> Has olvidado tu Password sigue las instrucciones
         para cambiar tu password de tu cuenta Uptask, porfavor sigue el siguiente enlace</p>";
-        $contenido .= "<p>Preciona aqui: <a href = 'https://protected-bayou-02768.herokuapp.com/reestablecer?token=" 
+        $contenido .= "<p>Preciona aqui: <a href = 'https://morning-tor-49638.herokuapp.com/reestablecer?token=" 
       . $this->token ."'>Reestablecer Cuenta</a></p>";
       }
       
