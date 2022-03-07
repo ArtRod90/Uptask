@@ -130,9 +130,13 @@ class ActiveRecord {
         if ($resultado) {
             $query = "ALTER TABLE tareas AUTO_INCREMENT = 1;";
             self::$db->query($query);
+            $query = "SET @@auto_increment_increment=1;";
+            self::$db->query($query);
         }
         
-        return $resultado;
+            return $resultado;
+        
+        
     }
 
     public static function consultarSQL($query) {
