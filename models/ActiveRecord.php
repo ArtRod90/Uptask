@@ -83,7 +83,12 @@ class ActiveRecord {
 
     // crea un nuevo registro
     public function crear() {
-        // Sanitizar los datos
+
+        $query = "SET @@auto_increment_increment=1;";        
+        $incremento = self::$db->query($query);
+
+        if ($incremento) {
+            // Sanitizar los datos
         $atributos = $this->sanitizarAtributos();
 
         // Insertar en la base de datos
@@ -100,6 +105,13 @@ class ActiveRecord {
            'resultado' =>  $resultado,
            'id' => self::$db->insert_id
         ];
+        }else {
+            return [            
+                'resultado' =>  $incremento,
+                'id' => self::$db->insert_id
+             ];
+        }
+        
     }
 
     public function actualizar() {
@@ -130,8 +142,7 @@ class ActiveRecord {
         if ($resultado) {
             $query = "ALTER TABLE tareas AUTO_INCREMENT = 1;";
             self::$db->query($query);
-            $query = "SET @@auto_increment_increment=1;";
-            self::$db->query($query);
+            
         }
         
             return $resultado;
